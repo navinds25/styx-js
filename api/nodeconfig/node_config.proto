@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package nodeconfig;
+option go_package = ".;nodeconfig";
+
+import "node_config_events.proto";
+
+service NodeConfigService {
+    rpc AddNodeConfig(NodeConfig) returns(AddNodeConfigResponse);
+    rpc GetNodeConfigByID(NodeID) returns(NodeConfig);
+    rpc ListNodeConfig(ListNodeConfigRequest) returns(AllNodeConfig);
+    rpc AddNode(NodeConfig) returns (AllNodeConfig);
+}

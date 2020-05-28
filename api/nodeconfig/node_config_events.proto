@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package nodeconfig;
+option go_package = ".;nodeconfig";
+
+// node config events
+message GRPCAuth {
+    string tls_cert = 1; // change to bytes ?
+    //string tls_key = 2; //change to bytes ?
+}
+
+message SFTPAuth {
+    enum SFTPAuthType {
+        SFTP_AUTH_TYPE_UNSPECIFIED = 0;
+        PASSWORD = 1;
+        KEYBASED = 2;
+        KEYPASSPHRASE = 3;
+    }
+    SFTPAuthType sftp_auth_type = 1;
+    string username = 2;
+    string password = 3;
+    string key = 4;
+}
+
+message NodeConfig {
+    string node_id = 1;
+    enum NodeType {
+        NODETYPE_UNSPECIFIED = 0;
+        NODETYPE_MASTER = 1;
+        NODETYPE_NODE = 2;
+        NODETYPE_EXTERNAL = 3;
+    }
+    NodeType nodetype = 2;
+    string grpc_address = 3;
+    string sftp_address = 4;
+    enum SZ {
+        SZ_UNSPECIFIED = 0;
+        SZ_EXTERNAL = 10;
+        SZ_DMZ = 20;
+        SZ_APP = 30;
+        SZ_DATA = 40;
+        SZ_CONTROLPLANE = 50;
+    }
+    SZ sz = 6;
+    GRPCAuth grpc_auth = 7;
+    SFTPAuth sftp_auth = 8;
+}
+
+message AddNodeConfigResponse {
+    string node_id = 1;
+    string node_entry_message = 2;
+    enum NodeEntryStatus {
+        NODE_ENTRY_STATUS_UNSPECIFIED = 0;
+        NODE_ENTRY_STATUS_SUCCESS = 1;
+        NODE_ENTRY_STATUS_ERROR = 2;
+    }
+    NodeEntryStatus node_entry_status = 3;
+}
+
+message NodeID {
+    string node_id = 1;
+}
+
+message ListNodeConfigRequest {}
+
+message AllNodeConfig {
+    repeated NodeConfig all_node_config = 1;
+}

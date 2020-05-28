@@ -1,0 +1,18 @@
+{
+  "name": "styx-js",
+  "version": "0.1.0",
+  "description": "js client for styx",
+  "main": "index.js",
+  "repository": "https://github.com/navinds25/styx-js.git",
+  "author": "navinds25",
+  "license": "GNU General Public License v3.0",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.0.4",
+    "@grpc/proto-loader": "^0.5.4"
+  }
+}
