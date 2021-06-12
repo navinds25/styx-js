@@ -18,6 +18,6 @@
     "@grpc/grpc-js": "^1.0.4",
     "@grpc/proto-loader": "^0.5.4",
     "@types/google-protobuf": "^3.7.2",
-    "grpc": "^1.24.2"
+    "grpc": "^1.24.9"
   }
 }
