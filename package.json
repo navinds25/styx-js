@@ -15,7 +15,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
-    "@grpc/grpc-js": "^1.0.4",
+    "@grpc/grpc-js": "^1.1.8",
     "@grpc/proto-loader": "^0.5.4",
     "@types/google-protobuf": "^3.7.2",
     "grpc": "^1.24.9"
